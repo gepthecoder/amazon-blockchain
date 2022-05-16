@@ -17,6 +17,7 @@ import Fantasy from "../images/fantasy.png";
 import Horror from "../images/horror.png";
 
 const carousel = [ Carousel1, Carousel2, Carousel3 ];
+const catCard = [ Adventure, Fantasy, Horror, Dictionaries ];
 
 const Home = () => {
 
@@ -57,7 +58,27 @@ return(
           View Product
         </Link>
       </Card>
-      
+
+      <Card className="card">
+        <h1>Shop By Category</h1>
+        <div className="card-content">
+          {catCard.map((e) => {
+            return (
+              <img
+                src={e}
+                alt="category"
+                className="card-category"
+                onClick={() => console.log("📚")}
+              ></img>
+            );
+          })}
+          <br />
+          <Link to="/" className="link">
+            Shop All
+          </Link>
+        </div>
+      </Card>
+
     </div>
   </div>
   </>
