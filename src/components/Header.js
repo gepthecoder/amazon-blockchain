@@ -6,7 +6,12 @@ import USA from "../images/usa.png";
 import BookStore from "../images/bookstore.png";
 import {ShoppingCartOutlined, MenuOutlined} from "@ant-design/icons";
 
+import { Link } from 'react-router-dom';
+
 const { Search } = Input;
+
+const categories = ["Comics", "Dictionaries", "Novels", "Fantasy", "Horror", "Adventure"];
+
 
 const Header = () => {
   const { authenticate } = useMoralis();
@@ -52,6 +57,13 @@ const Header = () => {
             <MenuOutlined />
             Categories
           </Space>
+          {categories.map((e) => {
+              return(
+                <Link to="/categories" state={e} className="categories">
+                  {e}
+                </Link>
+              )
+          })}
         </Space>
       </div>
     </div>
