@@ -4,7 +4,7 @@ import './Header.css'
 import Amazon from "../images/logo.png";
 import USA from "../images/usa.png";
 import BookStore from "../images/bookstore.png";
-import {ShoppingCartOutlined} from "@ant-design/icons";
+import {ShoppingCartOutlined, MenuOutlined} from "@ant-design/icons";
 
 const { Search } = Input;
 
@@ -41,12 +41,19 @@ const Header = () => {
               <Space className="header-buttons" size={"small"}>
                 <img src={USA} alt="region" className="flag"></img>▾
               </Space>
-
             </Space>
           </>
-          
         ]}>
       </PageHeader>
+
+      <div className='site-page-subheader-ghost-wrapper'>
+        <Space size={"middle"}>
+          <Space size={"small"} style={{fontWeight:"bold"}}>
+            <MenuOutlined />
+            Categories
+          </Space>
+        </Space>
+      </div>
     </div>
   )
 }
