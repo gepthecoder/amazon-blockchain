@@ -15,8 +15,13 @@ const Header = () => {
           <>
             <img src={Amazon} className="logo"></img>
             <img src={BookStore} className="logo"></img>
-            <Button key="1" type="primary" onClick={() => authenticate()}>
-              Login with Metamask
+            <Button
+              className="login"
+              key="1" 
+              type="primary" 
+              onClick={() => authenticate()}
+            >
+              Login
             </Button>
           </>
           
