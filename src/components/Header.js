@@ -1,9 +1,11 @@
-import { PageHeader, Button } from 'antd';
+import { PageHeader, Button, Input } from 'antd';
 import { useMoralis } from "react-moralis";
 import './Header.css'
 import Amazon from "../images/logo.png";
 import USA from "../images/usa.png";
 import BookStore from "../images/bookstore.png";
+
+const { Search } = Input;
 
 const Header = () => {
   const { authenticate } = useMoralis();
@@ -15,6 +17,11 @@ const Header = () => {
           <>
             <img src={Amazon} className="logo"></img>
             <img src={BookStore} className="logo"></img>
+            <Search
+              placeholder='Find A Product'
+              enterButton
+              className='searchBar'
+            />
             <Button
               className="login"
               key="1" 
