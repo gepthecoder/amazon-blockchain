@@ -1,9 +1,10 @@
-import { PageHeader, Button, Input } from 'antd';
+import { PageHeader, Button, Input, Space, Badge } from 'antd';
 import { useMoralis } from "react-moralis";
 import './Header.css'
 import Amazon from "../images/logo.png";
 import USA from "../images/usa.png";
 import BookStore from "../images/bookstore.png";
+import {ShoppingCartOutlined} from "@ant-design/icons";
 
 const { Search } = Input;
 
@@ -30,6 +31,18 @@ const Header = () => {
             >
               Login
             </Button>
+            <Space size={"large"}>
+              <Badge count={0} showZero>
+                <span className="header-buttons">
+                  <ShoppingCartOutlined className="header-icon" />
+                  Cart
+                </span>
+              </Badge>
+              <Space className="header-buttons" size={"small"}>
+                <img src={USA} alt="region" className="flag"></img>▾
+              </Space>
+
+            </Space>
           </>
           
         ]}>
