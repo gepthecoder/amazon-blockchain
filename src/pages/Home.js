@@ -30,6 +30,7 @@ return(
       })}
     </Carousel>
     <div className="cards">
+
       <Card className="card">
         <h1>Browse Comics</h1>
         <img src={Comics} alt="Comics Category" className="card-content"></img>
@@ -37,7 +38,26 @@ return(
         <Link to="/categories" state={"Comics"} className="link">
           Shop Now
         </Link>
+      </Card>¸
+
+      <Card className="card">
+        <h1>Artemis Fowl</h1>
+        <img src={ArtemisFowl} alt="Artemis Fowl" className="card-content"></img>
+        <br />
+        <Link to="/" className="link">
+          View Product
+        </Link>
       </Card>
+
+      <Card className="card">
+        <h1>Moby Dick</h1>
+        <img src={MobyDick} alt="Moby Dick" className="card-content"></img>
+        <br />
+        <Link to="/" className="link">
+          View Product
+        </Link>
+      </Card>
+      
     </div>
   </div>
   </>
