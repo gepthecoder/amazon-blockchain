@@ -38,6 +38,9 @@ const Product = () => {
               {book.about}
             </p>
           </div>
+          <div className="purchase-details">
+            
+          </div>
         </div>
       </div>
     </>
