@@ -14,6 +14,9 @@ const Categories = () => {
 const {state: category} = useLocation();
 const [rating, setRating] = useState(1);
 
+const [priceMin, setPriceMin] = useState(0);
+const [priceMax, setPriceMax] = useState(100);
+
 return(
   <>
     <div className="container">
@@ -25,7 +28,12 @@ return(
       <Layout>
         <Sider width="340px" theme="light" style={{ padding: "25px" }}>
           <Rating rating={rating} setRating={setRating}/>
-          <PriceRanges />
+          <PriceRanges 
+            priceMin={priceMin}
+            setPriceMin={setPriceMin}
+            priceMax={priceMax}
+            setPriceMax={setPriceMax}
+          />
         </Sider>
         <Content
           theme="light"
