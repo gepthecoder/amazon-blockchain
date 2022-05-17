@@ -27,14 +27,17 @@ return(
       </div>
       <Layout>
         <Sider width="340px" theme="light" style={{ padding: "25px" }}>
-          <Rating rating={rating} setRating={setRating}/>
-          <PriceRanges 
-            priceMin={priceMin}
-            setPriceMin={setPriceMin}
-            priceMax={priceMax}
-            setPriceMax={setPriceMax}
-          />
-          <Button className="login">Apply Filters</Button>
+          <div style={{display: "flex", flexDirection: "column"}}>
+            <Rating rating={rating} setRating={setRating}/>
+            <PriceRanges 
+              priceMin={priceMin}
+              setPriceMin={setPriceMin}
+              priceMax={priceMax}
+              setPriceMax={setPriceMax}
+            />
+            <Button className="login">Apply Filters</Button>
+          </div>
+         
         </Sider>
         <Content
           theme="light"
