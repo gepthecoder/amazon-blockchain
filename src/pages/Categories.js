@@ -6,6 +6,7 @@ import { Layout } from 'antd';
 import { useState } from 'react';
 import Rating from '../components/Rating';
 import PriceRanges from '../components/PriceRanges';
+import Results from '../components/Results';
 
 const { Sider, Content } = Layout;
 
@@ -25,7 +26,9 @@ return(
           <span>Showing Products For </span>
           <span className="category">"{category}"</span>
       </div>
+
       <Layout>
+
         <Sider width="340px" theme="light" style={{ padding: "25px" }}>
           <div style={{display: "flex", flexDirection: "column"}}>
             <Rating rating={rating} setRating={setRating}/>
@@ -39,11 +42,15 @@ return(
           </div>
          
         </Sider>
+
         <Content
           theme="light"
-          style={{ padding: "35px", backgroundColor: "brown"}}
+          style={{ padding: "35px", backgroundColor: "white"}}
         >
+          <h1 style={{fontSize:"30px"}}>RESULTS</h1>
+          <Results />
         </Content>
+
       </Layout>
     </div>
   </>
