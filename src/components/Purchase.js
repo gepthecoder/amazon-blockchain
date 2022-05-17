@@ -21,8 +21,10 @@ function Purchase({book}) {
             address: "0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0",
             chain: "eth"
           };
-          const price = await Moralis.Web3API.token.getTokenPrice(options);
-          console.log(price.usdPrice, '💎');
+        const price = await Moralis.Web3API.token.getTokenPrice(options);
+        console.log("Current USD value of Matic " + price.usdPrice, '💸');
+        const priceMatic = book.price / price.usdPrice;
+        console.log("Book Price In Matic " + priceMatic, '💎');
         // send matic to book store owner addresss
         // save transaction details to moralis db
 
