@@ -10,7 +10,11 @@ function Purchase({book}) {
     const [delivery, setDelivery] = useState("");
 
     const handleOk = async () => {
-    
+        
+        // get current price of matic
+        // send matic to book store owner addresss
+        // save transaction details to moralis db
+        
         setIsModalVisible(false);
 
     }
