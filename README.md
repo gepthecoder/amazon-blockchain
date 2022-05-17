@@ -20,3 +20,6 @@ FULL-STACK Web 3.0 Amazon Clone Using React and Moralis
 ![image](https://user-images.githubusercontent.com/38008294/168817300-24ccd685-74fd-4e51-abd2-5d35ced6c328.png)
 
 ![image](https://user-images.githubusercontent.com/38008294/168817617-57313a5e-b795-4abb-ad88-cd962b6a2138.png)
+
+![image](https://user-images.githubusercontent.com/38008294/168819081-ffc3f79e-3068-42b3-8c7a-ac701a074707.png)
+
