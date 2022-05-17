@@ -9,6 +9,12 @@ function Purchase({book}) {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [delivery, setDelivery] = useState("");
 
+    const handleOk = async () => {
+    
+        setIsModalVisible(false);
+
+    }
+
     return (
         <>
             <span className="price"> ${book.price}</span>
@@ -33,7 +39,7 @@ function Purchase({book}) {
             <Modal
                 title="Purchase Product"
                 visible={isModalVisible}
-                /*onOk={handleOk}*/
+                onOk={handleOk}
                 onCancel={()=>setIsModalVisible(false)}
             >
                 <div style={{ display: "flex" }}>
