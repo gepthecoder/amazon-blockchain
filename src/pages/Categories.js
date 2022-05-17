@@ -34,6 +34,7 @@ return(
             priceMax={priceMax}
             setPriceMax={setPriceMax}
           />
+          <Button className="login">Apply Filters</Button>
         </Sider>
         <Content
           theme="light"
@@ -41,13 +42,6 @@ return(
         >
         </Content>
       </Layout>
-
-      <Button 
-        type="primary"
-        onClick={() => console.log(category)}
-      >
-        Categories Page
-      </Button>
     </div>
   </>
 )
