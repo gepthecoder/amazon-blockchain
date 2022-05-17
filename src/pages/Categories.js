@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import { Layout } from 'antd';
 import { useState } from 'react';
 import Rating from '../components/Rating';
+import PriceRanges from '../components/PriceRanges';
 
 const { Sider, Content } = Layout;
 
@@ -24,6 +25,7 @@ return(
       <Layout>
         <Sider width="340px" theme="light" style={{ padding: "25px" }}>
           <Rating rating={rating} setRating={setRating}/>
+          <PriceRanges />
         </Sider>
         <Content
           theme="light"
