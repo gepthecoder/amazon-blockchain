@@ -3,15 +3,13 @@ import {ShoppingCartOutlined} from "@ant-design/icons";
 import { useState } from 'react';
 import { useMoralis } from 'react-moralis';
 
-
 const {Option} = Select;
-
 
 function Purchase({book}) {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [delivery, setDelivery] = useState("");
 
-    const {Moralis} = useMoralis();
+    const {Moralis, account, chainId} = useMoralis();
 
 
     const handleOk = async () => {
@@ -20,7 +18,7 @@ function Purchase({book}) {
         const options = {
             address: "0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0",
             chain: "eth"
-          };
+        };
         const price = await Moralis.Web3API.token.getTokenPrice(options);
         console.log("Current USD value of Matic " + price.usdPrice, '💸');
         const priceMatic = book.price / price.usdPrice;
@@ -31,14 +29,21 @@ function Purchase({book}) {
             type: "native", 
             amount: Moralis.Units.ETH(priceMatic), 
             receiver: "0xe276941FBd5f936E677dB9B6eEE8212a3b268C5E"
-          }
+        };
 
-        let result = await Moralis.transfer(options1)
-        
+        let result = await Moralis.transfer(options1);
+
         // save transaction details to moralis db
+        const Transaction = Moralis.Object.extend("Transaction");
+        const transaction = new Transaction();
+    
+        transaction.set("Customer", account);
+        transaction.set("Delivery", delivery);
+        transaction.set("Product", book.name);
+    
+        transaction.save()
 
         setIsModalVisible(false);
-
     }
 
     return (
@@ -54,14 +59,15 @@ function Purchase({book}) {
                 <Option value={4}>4</Option>
                 <Option value={5}>5</Option>
             </Select>
-            <Button
-                className="login"
-                style={{ width: "100%", marginTop: "50px" }}
-                onClick={()=>setIsModalVisible(true)}
-            >
-                <ShoppingCartOutlined /> Buy Now
-            </Button>
-
+            {chainId === "0x13881" &&
+                <Button
+                    className="login"
+                    style={{ width: "100%", marginTop: "50px" }}
+                    onClick={()=>setIsModalVisible(true)}
+                >
+                    <ShoppingCartOutlined /> Buy Now
+                </Button>
+            }
             <Modal
                 title="Purchase Product"
                 visible={isModalVisible}
