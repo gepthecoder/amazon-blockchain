@@ -3,7 +3,7 @@ import { Rate  } from 'antd';
 import Header from '../components/Header';
 import "./Product.css";
 import { useLocation } from 'react-router';
-
+import Purchase from '../components/Purchase';
 
 const Product = () => {
   
@@ -39,7 +39,7 @@ const Product = () => {
             </p>
           </div>
           <div className="purchase-details">
-            
+            <Purchase book={book}/>
           </div>
         </div>
       </div>
