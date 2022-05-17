@@ -25,7 +25,16 @@ function Purchase({book}) {
         console.log("Current USD value of Matic " + price.usdPrice, '💸');
         const priceMatic = book.price / price.usdPrice;
         console.log("Book Price In Matic " + priceMatic, '💎');
+
         // send matic to book store owner addresss
+        const options1 = {
+            type: "native", 
+            amount: Moralis.Units.ETH(priceMatic), 
+            receiver: "0xe276941FBd5f936E677dB9B6eEE8212a3b268C5E"
+          }
+
+        let result = await Moralis.transfer(options1)
+        
         // save transaction details to moralis db
 
         setIsModalVisible(false);
