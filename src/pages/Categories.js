@@ -48,7 +48,7 @@ return(
           style={{ padding: "35px", backgroundColor: "white"}}
         >
           <h1 style={{fontSize:"30px"}}>RESULTS</h1>
-          <Results />
+          <Results category={category} rating={rating} priceMin={priceMin} priceMax={priceMax}/>
         </Content>
 
       </Layout>
