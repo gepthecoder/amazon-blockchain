@@ -1,4 +1,4 @@
-import {Select, Button, Modal} from 'antd'
+import {Select, Button, Modal, Input} from 'antd'
 import {ShoppingCartOutlined} from "@ant-design/icons";
 import { useState } from 'react';
 
@@ -7,6 +7,7 @@ const {Option} = Select;
 
 function Purchase({book}) {
     const [isModalVisible, setIsModalVisible] = useState(false);
+    const [delivery, setDelivery] = useState("");
 
     return (
         <>
@@ -35,6 +36,15 @@ function Purchase({book}) {
                 /*onOk={handleOk}*/
                 onCancel={()=>setIsModalVisible(false)}
             >
+                <div style={{ display: "flex" }}>
+                    <img src={book.image} alt="product" style={{ width: "200px" }}></img>
+                    <div>
+                        <h3>{book.name}</h3>
+                        <h2>${book.price}</h2>
+                        <h4>Delivery Address</h4>
+                        <Input onChange={(value) => setDelivery(value.target.value)}></Input>
+                    </div>
+                </div>
             </Modal>
         </>
     )
