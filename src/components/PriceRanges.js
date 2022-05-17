@@ -28,6 +28,8 @@ function PriceRanges({priceMin, setPriceMin, priceMax, setPriceMax}) {
                     onChange={(value) => changePrice(priceMin,value)}
                 />
             </Space>
+            <br/>
+            <br/>
        </>
     )
 }
