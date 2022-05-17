@@ -1,6 +1,8 @@
 import {Select, Button, Modal, Input} from 'antd'
 import {ShoppingCartOutlined} from "@ant-design/icons";
 import { useState } from 'react';
+import { useMoralis } from 'react-moralis';
+
 
 const {Option} = Select;
 
@@ -9,12 +11,21 @@ function Purchase({book}) {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [delivery, setDelivery] = useState("");
 
+    const {Moralis} = useMoralis();
+
+
     const handleOk = async () => {
         
         // get current price of matic
+        const options = {
+            address: "0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0",
+            chain: "eth"
+          };
+          const price = await Moralis.Web3API.token.getTokenPrice(options);
+          console.log(price.usdPrice, '💎');
         // send matic to book store owner addresss
         // save transaction details to moralis db
-        
+
         setIsModalVisible(false);
 
     }
