@@ -1,4 +1,5 @@
 import "./PriceRanges.css";
+import {Space, InputNumber} from 'antd';
 
 function PriceRanges({priceMin, setPriceMin, priceMax, setPriceMax}) {   
     function changePrice(min,max){
@@ -14,6 +15,19 @@ function PriceRanges({priceMin, setPriceMin, priceMax, setPriceMax}) {
             <p className="prices" onClick={() => changePrice(5,10)}>$5 to $10</p>
             <p className="prices" onClick={() => changePrice(10,20)}>$10 to $20</p>
             <p className="prices" onClick={() => changePrice(20,100)}>$20 & Above</p>
+
+            <Space>
+                <InputNumber
+                    value={priceMin}
+                    formatter={value => `$ ${value}`}
+                    onChange={(value) => changePrice(value,priceMax)}
+                />
+                <InputNumber
+                    value={priceMax}
+                    formatter={value => `$ ${value}`}
+                    onChange={(value) => changePrice(priceMin,value)}
+                />
+            </Space>
        </>
     )
 }
